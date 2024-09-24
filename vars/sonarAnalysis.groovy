@@ -1,4 +1,7 @@
-def call(boolean abortPipeline = false, boolean qualityGateCheck = false) {
+def call(Map params = [:]) {
+    boolean abortPipeline = params.get('abortPipeline', false)
+    boolean qualityGateCheck = params.get('qualityGateCheck', false)
+
     withSonarQubeEnv('Sonar Local') {
         sh 'echo "Ejecución de las pruebas de calidad de código"'
         
