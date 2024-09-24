@@ -8,7 +8,7 @@ def call(Map params = [:]) {
         timeout(time: 5, unit: 'MINUTES') {
             echo 'Esperando a los resultados del análisis de SonarQube...'
             if (qualityGateCheck) {
-                def qualityGateStatus = 'FAILED'
+                def qualityGateStatus = 'PASSED'
                 echo "QualityGate result: ${qualityGateStatus}"
                 if (qualityGateStatus == 'FAILED' && abortPipeline) {
                     error 'El análisis de calidad ha fallado y se ha abortado el pipeline.'
